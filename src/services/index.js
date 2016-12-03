@@ -1,5 +1,5 @@
 import Db from './db';
-const PLAYERS = 'players';
+const PLAYERS = 'Poker';
 
 
 
@@ -22,7 +22,7 @@ export default {
   })
 },
 
-  getPlayer(name) {
+  getPlayer(name,password) {
     let query = {name: search};
     return Db.then(db => {
       return db.collection(PLAYERS)

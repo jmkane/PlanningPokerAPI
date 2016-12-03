@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import PlayerRoutes  from './routes/player';
 const app = Express();
 
-export default app;
+
 
 
 app.use(bodyParser.json());
@@ -14,3 +14,4 @@ app.listen(3000, function(){
   console.log('App has started');
 });
 
+export default app;

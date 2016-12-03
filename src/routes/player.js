@@ -7,7 +7,7 @@ router.get('/', (request, response) =>{
 //  res.send('db home page');
   const query = request.query.search;
   console.log(query);
-  return PlayerServices.find(query)
+  return PlayerServices.getPlayer(query)
     .then(player => {
       return response.json(player)
     })
@@ -18,7 +18,7 @@ router.get('/', (request, response) =>{
 router.put('/:player.name', (req, res) => {
   const id = req.params.id;
   const player = req.body;
-  return PlayerServices.update(id, player)
+  return PlayerServices.updatePlayer(id, player)
     .then(player => {
       return res.json(player);
     })
@@ -31,7 +31,7 @@ router.put('/:player.name', (req, res) => {
 router.post('/', (req, res) => {
   const player = req.body;
   console.log(player);
-  return PlayerServices.insert(player)
+  return PlayerServices.addPlayer(player)
     .then(player => {
       return res.json(player);
     })
