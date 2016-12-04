@@ -3,9 +3,9 @@ import { Router } from 'express';
 
 const router = new Router();
 
-router.get('/', (request, response) =>{
+router.put('/login', (request, response) =>{
 //  res.send('db home page');
-  const query = request.query.search;
+  const query = request.body;
   console.log(query);
   return PlayerServices.getPlayer(query)
     .then(player => {

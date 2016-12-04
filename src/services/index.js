@@ -23,12 +23,11 @@ export default {
 },
 
   getPlayer(name,password) {
-    let query = {name: search};
+    let query = {name: name, password: password};
     return Db.then(db => {
       return db.collection(PLAYERS)
-        .find(query)
-        .toArray();
-    })
+        .findOne(query)
+    } )
   },
 
   addPlayer(player) {
