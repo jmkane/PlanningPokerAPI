@@ -7,20 +7,20 @@ export default {
 
   updatePlayer(player, _id) {
 
-  const copyPlayer = JSON.parse(JSON.stringify(player));
+    const copyPlayer = JSON.parse(JSON.stringify(player));
 
-  if(copyPlayer._id){
-    delete copyPlayer._id;
-  }
-  if(copyPlayer._id) {
-    delete copyPlayer._id;
-  }
-  return Db.then(db => {
-    const collection = db.collection(PLAYERS);
-    return collection.findOneAndUpdate
-    ( {copyPlayer})
-  })
-},
+    if(copyPlayer._id){
+      delete copyPlayer._id;
+    }
+    if(copyPlayer._id) {
+      delete copyPlayer._id;
+    }
+    return Db.then(db => {
+      const collection = db.collection(PLAYERS);
+      return collection.findOneAndUpdate
+      ( {copyPlayer})
+    })
+  },
 
   getPlayer(name,password) {
     let query = {name: name, password: password};

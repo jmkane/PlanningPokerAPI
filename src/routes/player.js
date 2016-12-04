@@ -3,7 +3,7 @@ import { Router } from 'express';
 
 const router = new Router();
 
-router.put('/login', (request, response) =>{
+router.post('/login', (request, response) =>{
 //  res.send('db home page');
   const query = request.body;
   console.log(query);
