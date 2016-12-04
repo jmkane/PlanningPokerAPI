@@ -1,5 +1,6 @@
 import Express from 'express';
 import bodyParser from 'body-parser';
+import Cors from 'cors';
 import PlayerRoutes  from './routes/player';
 const app = Express();
 
@@ -7,6 +8,7 @@ const app = Express();
 
 
 app.use(bodyParser.json());
+app.use(Cors());
 app.use('/players', PlayerRoutes);
 
 

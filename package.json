@@ -30,6 +30,7 @@
   "dependencies": {
     "babel": "^6.5.2",
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "express": "^4.14.0",
     "joi": "^10.0.2",
     "mongodb": "^2.2.12"
