@@ -1,6 +1,6 @@
 import Db from './db';
+const MongoDB = require('mongodb');
 const PLAYERS = 'Poker';
-
 
 
 export default {
@@ -23,17 +23,19 @@ export default {
   },
 
   getPlayer(name,password) {
-    let query = {name: name, password: password};
-    return Db.then(db => {
+      return Db.then(db => {
+      let query = {name: name, password: password};
       return db.collection(PLAYERS)
         .findOne(query)
+        .toArray();
     } )
   },
 
   addPlayer(player) {
+    const copyPlayer = JSON.parse(JSON.stringify(player));
     return Db.then(db => {
       const collection = db.collection(PLAYERS);
-      return collection.insertOne( JSON.parse(JSON.stringify(player)))
+      return collection.insertOne( {copyPlayer})
     })
   }
 }

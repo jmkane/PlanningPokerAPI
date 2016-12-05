@@ -9,8 +9,7 @@ const app = Express();
 
 app.use(bodyParser.json());
 app.use(Cors());
-app.use('/players', PlayerRoutes);
-
+app.use('/', PlayerRoutes);
 
 app.listen(3000, function(){
   console.log('App has started');
