@@ -34,6 +34,7 @@ router.post('/', (req, res) => {
   return PlayerServices.addPlayer(player)
     .then(player => {
       return res.json(player);
+
     })
     .catch(e => {
       console.log(e);
