@@ -1,7 +1,9 @@
 import Express from 'express';
 import bodyParser from 'body-parser';
+import Passport from 'passport';
 import Cors from 'cors';
 import PlayerRoutes  from './routes/player';
+import { Strategy } from 'passport-local';
 const app = Express();
 
 
