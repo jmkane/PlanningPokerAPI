@@ -1,11 +1,11 @@
 import PlayerServices from '../services';
 import { Router } from 'express';
 import Passport from 'passport';
-import {localStrategy} from 'passport-local';
 
+const LocalStrategy = require('passport-local').Strategy
 const router = new Router();
 
-passport.use(new LocalStrategy(
+Passport.use(new LocalStrategy(
   function(name, password, done) {
     Player.findOne({ name: name }, function (err, player) {
       if (err) { return done(err); }
@@ -21,7 +21,7 @@ passport.use(new LocalStrategy(
 ));
 
 router.get('/login', (request, response, next) =>{
-  passport.authenticate('local', function(err, player, info) {
+  passport.authenticate('local', function(err, name, password) {
     if (err) { return next(err); }
     if (!player) { return res.redirect('/login'); }
     req.logIn(player.name, function(err) {
