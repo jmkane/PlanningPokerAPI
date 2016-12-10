@@ -2,7 +2,7 @@ import PlayerServices from '../services';
 import { Router } from 'express';
 import Passport from 'passport';
 
-const LocalStrategy = require('passport-local').Strategy
+const LocalStrategy = require('passport-local').Strategy;
 const router = new Router();
 
 Passport.use(new LocalStrategy(
