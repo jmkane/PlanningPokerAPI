@@ -21,14 +21,12 @@ export default {
       ( {copyPlayer})
     })
   },
-
   getPlayer(name,password) {
       return Db.then(db => {
-      let query = {name: name, password: password};
+      let query = {name: name,password: password};
       console.log(query);
       return db.collection(PLAYERS)
-        .findOne(query)
-        .toArray();
+        .findOne(query);
     } )
   },
 
