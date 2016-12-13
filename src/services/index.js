@@ -18,7 +18,7 @@ export default {
     return Db.then(db => {
       const collection = db.collection(PLAYERS);
       return collection.findOneAndUpdate
-      ( {copyPlayer})
+      (copyPlayer)
     })
   },
   getPlayer(name,password) {
@@ -34,7 +34,7 @@ export default {
     const copyPlayer = JSON.parse(JSON.stringify(player));
     return Db.then(db => {
       const collection = db.collection(PLAYERS);
-      return collection.insertOne( {copyPlayer})
+      return collection.insertOne(copyPlayer)
     })
   }
 }

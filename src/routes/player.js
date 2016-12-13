@@ -7,19 +7,23 @@ const router = new Router();
 function PlayerRoutes (Passport) {
   Passport.use(new BasicStrategy(
     function(username, password, done) {
-      let player = PlayerServices.getPlayer(username,password);
-      console.log(player);
-      if(!player){
-        return done(null, false, {message: 'Incorrect User Name'})
-      }
-      return done(null, player)
+      PlayerServices.getPlayer(username, password).then(player => {
+        console.log(player);
+        if (!player) {
+          return done(null, false, {message: 'Incorrect User Name'})
+        }
+        console.log('done', player);
+        return done(null, player)
+      });
     }
   ));
 
   router.post('/login', Passport.authenticate('basic', { session: false }),
     function(req, res) {
-      res.json({ user: req.player });
+      res.json({ user: req.user });
+      console.log(req.user);
     });
+
 //  res.send('db home page');
 //   const query = request.body;
 //   console.log(query);
