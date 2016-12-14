@@ -2,7 +2,6 @@ import Db from './db';
 const MongoDB = require('mongodb');
 const PLAYERS = 'Poker';
 
-
 export default {
 
   updatePlayer(player, _id) {

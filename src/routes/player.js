@@ -1,4 +1,4 @@
-import PlayerServices from '../services';
+import PlayerServices from '../services'
 import { Router } from 'express';
 
 const BasicStrategy = require('passport-http').BasicStrategy;
