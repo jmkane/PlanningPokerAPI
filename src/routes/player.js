@@ -8,7 +8,7 @@ function PlayerRoutes (Passport) {
   Passport.use(new BasicStrategy(
     function(username, password, done) {
       PlayerServices.getPlayer(username, password).then(player => {
-        console.log(player);
+        console.log('Passport',player);
         if (!player) {
           return done(null, false, {message: 'Incorrect User Name'})
         }
@@ -21,19 +21,9 @@ function PlayerRoutes (Passport) {
   router.post('/login', Passport.authenticate('basic', { session: false }),
     function(req, res) {
       res.json({ user: req.user });
-      console.log(req.user);
+      console.log('post',req.user);
+      return req.user;
     });
-
-//  res.send('db home page');
-//   const query = request.body;
-//   console.log(query);
-//   return PlayerServices.getPlayer(query)
-//     .then(player => {
-//       return response.json(player)
-//     })
-//     .catch(e => { return res.status(500).json({message: 'Error in data base',
-//       error: e})})
-// });
 
   router.put('/:player.name', (req, res) => {
     const id = req.params.id;

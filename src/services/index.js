@@ -23,10 +23,10 @@ export default {
   getPlayer(name,password) {
       return Db.then(db => {
       let query = {name: name,password: password};
-      console.log(query);
+      console.log('getPlayer',query);
       return db.collection(PLAYERS)
         .findOne(query);
-    } )
+         } )
   },
 
   addPlayer(player) {
